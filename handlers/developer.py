@@ -10,7 +10,7 @@ from pyrogram import filters
 from inspect import getfullargspec
 from sys import version as pyver
 from config import BOT_USERNAME
-from pyrogram import Client, filters
+from pyrogram import Client, 
 from helpers.decorators import sudo_users_only
 from helpers.filters import command
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
