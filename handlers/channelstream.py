@@ -155,9 +155,6 @@ async def p_cb(b, cb):
         return
     que.get(lol)
     type_ = cb.matches[0].group(1)
-    cb.message.chat.id
-    cb.message.chat
-    cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "playlist":
         queue = que.get(lol)
         if not queue:
@@ -203,7 +200,6 @@ async def m_cb(b, cb):
             return
     qeue = que.get(chet_id)
     type_ = cb.matches[0].group(1)
-    cb.message.chat.id
     m_chat = cb.message.chat
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
@@ -392,13 +388,9 @@ async def play(_, message: Message):
             f"❌ `NOT_IN_GROUP`\n\n» **The userbot not in this group, bot can't play music.**"
         )
         return
-    message.from_user.id
     text_links = None
-    message.from_user.first_name
     await lel.edit("🎧 **Preparing...**")
-    message.from_user.id
     user_id = message.from_user.id
-    message.from_user.first_name
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     if message.reply_to_message:
@@ -442,7 +434,6 @@ async def play(_, message: Message):
         thumb_name = "https://telegra.ph/file/f6086f8909fbfeb0844f2.png"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
-        message.from_user.first_name
         await generate_cover(title, thumbnail)
         file_path = await convert(
             (await message.reply_to_message.download(file_name))
@@ -488,7 +479,6 @@ async def play(_, message: Message):
                 ],
             ]
         )
-        message.from_user.first_name
         await generate_cover(title, thumbnail)
         file_path = await convert(youtube.download(url))
     else:
@@ -534,7 +524,6 @@ async def play(_, message: Message):
                 ],
             ]
         )
-        message.from_user.first_name
         await generate_cover(title, thumbnail)
         file_path = await convert(youtube.download(url))
     chat_id = chid
