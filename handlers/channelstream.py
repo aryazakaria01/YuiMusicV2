@@ -385,7 +385,7 @@ async def play(_, message: Message):
         # lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            f"❌ `NOT_IN_GROUP`\n\n» **The userbot not in this group, bot can't play music.**"
+            "❌ `NOT_IN_GROUP`\n\n» **The userbot not in this group, bot can't play music.**"
         )
         return
     text_links = None
