@@ -101,10 +101,9 @@ async def main_broadcast_handler(m, db):
             done += 1
             if broadcast_ids.get(broadcast_id) is None:
                 break
-            else:
-                broadcast_ids[broadcast_id].update(
-                    dict(current=done, failed=failed, success=success)
-                )
+            broadcast_ids[broadcast_id].update(
+                dict(current=done, failed=failed, success=success)
+            )
     if broadcast_ids.get(broadcast_id):
         broadcast_ids.pop(broadcast_id)
     completed_in = datetime.timedelta(seconds=int(time.time() - start_time))
