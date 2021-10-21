@@ -542,21 +542,20 @@ async def play(_, message: Message):
         )
         os.remove("final.png")
         return await lel.delete()
-    else:
-        chat_id = chid
-        que[chat_id] = []
-        qeue = que.get(chat_id)
-        s_name = title
-        r_by = message.from_user
-        loc = file_path
-        appendable = [s_name, r_by, loc]
-        qeue.append(appendable)
-        callsmusic.pytgcalls.join_group_call(chat_id, file_path)
-        await message.reply_photo(
-            photo="final.png",
-            caption=f"🏷 **Name:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
-            + f"🎧 **Request by:** {message.from_user.mention}",
-            reply_markup=keyboard,
-        )
-        os.remove("final.png")
-        return await lel.delete()
+    chat_id = chid
+    que[chat_id] = []
+    qeue = que.get(chat_id)
+    s_name = title
+    r_by = message.from_user
+    loc = file_path
+    appendable = [s_name, r_by, loc]
+    qeue.append(appendable)
+    callsmusic.pytgcalls.join_group_call(chat_id, file_path)
+    await message.reply_photo(
+        photo="final.png",
+        caption=f"🏷 **Name:** [{title[:60]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
+        + f"🎧 **Request by:** {message.from_user.mention}",
+        reply_markup=keyboard,
+    )
+    os.remove("final.png")
+    return await lel.delete()
