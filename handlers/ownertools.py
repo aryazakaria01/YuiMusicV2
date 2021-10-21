@@ -189,23 +189,22 @@ async def updatebot(_, message: Message):
         execle(sys.executable, *args, environ)
         sys.exit()
         return
+    await msg.edit("`heroku detected!`")
+    await msg.edit(
+        "`updating and restarting is started, please wait for 5-10 minutes!`"
+    )
+    ups_rem.fetch(U_BRANCH)
+    repo.git.reset("--hard", "FETCH_HEAD")
+    if "heroku" in repo.remotes:
+        remote = repo.remote("heroku")
+        remote.set_url(HEROKU_URL)
     else:
-        await msg.edit("`heroku detected!`")
-        await msg.edit(
-            "`updating and restarting is started, please wait for 5-10 minutes!`"
-        )
-        ups_rem.fetch(U_BRANCH)
-        repo.git.reset("--hard", "FETCH_HEAD")
-        if "heroku" in repo.remotes:
-            remote = repo.remote("heroku")
-            remote.set_url(HEROKU_URL)
-        else:
-            remote = repo.create_remote("heroku", HEROKU_URL)
-        try:
-            remote.push(refspec="HEAD:refs/heads/main", force=True)
-        except BaseException as error:
-            await msg.edit(f"🚫 **updater error** \n\nTraceBack : `{error}`")
-            return repo.__del__()
+        remote = repo.create_remote("heroku", HEROKU_URL)
+    try:
+        remote.push(refspec="HEAD:refs/heads/main", force=True)
+    except BaseException as error:
+        await msg.edit(f"🚫 **updater error** \n\nTraceBack : `{error}`")
+        return repo.__del__()
 
 
 # HEROKU LOGS
