@@ -32,17 +32,17 @@ async def addchannel(client, message):
         await USER.join_chat(invitelink)
     except UserAlreadyParticipant:
         await message.reply_text(
-            f"✅ **userbot already entered chat**",
+            "✅ **userbot already entered chat**",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"🛑 Flood Wait Error 🛑 \n\n**userbot couldn't join your group due to heavy join requests for userbot**"
+            "🛑 Flood Wait Error 🛑 \n\n**userbot couldn't join your group due to heavy join requests for userbot**"
             "\n\n**or add assistant manually to your Group and try again**",
         )
         return
     await message.reply_text(
-        f"✅ **userbot succesfully entered chat**",
+        "✅ **userbot succesfully entered chat**",
     )
 
 
