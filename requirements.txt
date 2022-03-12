@@ -10,7 +10,7 @@ asyncio
 youtube-search
 search-engine-parser
 ffmpeg-python
-pillow==8.4.0
+pillow==9.0.1
 future
 psutil
 wget
