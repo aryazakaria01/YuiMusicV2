@@ -17,6 +17,6 @@ wget
 motor
 dnspython
 yt-dlp
-httpx==0.13.3
+httpx==0.23.0
 heroku3
 gitpython
